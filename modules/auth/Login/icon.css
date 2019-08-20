@@ -1,0 +1,8 @@
+.loginCircle{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border : 1px solid springgreen;
+  background-color: white;
+  margin: 0 auto;
+}
