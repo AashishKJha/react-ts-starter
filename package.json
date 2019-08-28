@@ -10,7 +10,8 @@
     "popper.js": "^1.14.7",
     "react": "^16.8.0",
     "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.8.0",
+    "rxjs": "^6.5.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",

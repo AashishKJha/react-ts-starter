@@ -1,6 +1,6 @@
 import * as React from 'react';
 import LoginIcon from './LoginIcon';
-import ValidationUtils  from '../../common/utils/ValidationUtils';
+import ValidationUtils from '../../common/utils/ValidationUtils';
 import ErrorMessage from '../../common/components/ErrorMessage';
 import { LoginService } from './LoginService'
 import './Login.css'
@@ -8,9 +8,9 @@ import './Login.css'
 interface Istate {
   userEmail: string;
   password: string;
-  errors : {
-    userEmail : string[];
-    password : string[];
+  errors: {
+    userEmail: string[];
+    password: string[];
   }
 }
 
@@ -19,17 +19,17 @@ interface IProps {
 }
 export default class LoginComponent extends React.Component<IProps, Istate> {
 
-  private loginService : LoginService = new LoginService();
+  private loginService: LoginService = new LoginService();
 
   constructor(props) {
     super(props);
     this.state = {
       userEmail: '',
       password: '',
-      errors : {
-        userEmail : [],
-         password : []
-       }
+      errors: {
+        userEmail: [],
+        password: []
+      }
     }
     this.submitForm = this.submitForm.bind(this);
     this.changeEmailHandler = this.changeEmailHandler.bind(this);
@@ -37,16 +37,16 @@ export default class LoginComponent extends React.Component<IProps, Istate> {
   }
 
   render() {
-    {/** Auth container */}
+    {/** Auth container */ }
     return <div className="container">
-    {/** Login Layout */}
+      {/** Login Layout */}
       <div className="middle mt-5">
 
-      {/** Login Header*/}
+        {/** Login Header*/}
         <div className="text-center">
           <h2 className="text-red">Login Here..</h2>
         </div>
-         {/** Login Form */}
+        {/** Login Form */}
         <form className="login mt-3 p-3">
 
           {/** Login Icon*/}
@@ -55,13 +55,13 @@ export default class LoginComponent extends React.Component<IProps, Istate> {
           </div>
 
           <div className="mt-2">
-            <input className="form-control" type="email" name="userEmail" onChange={this.changeEmailHandler} value={this.state.userEmail} placeholder="Enter Email" minLength={10} maxLength={30} required/>
-            <ErrorMessage message ={this.state.errors.userEmail}/>
+            <input className="form-control" type="email" name="userEmail" onChange={this.changeEmailHandler} value={this.state.userEmail} placeholder="Enter Email" minLength={10} maxLength={30} required />
+            <ErrorMessage message={this.state.errors.userEmail} />
           </div>
 
           <div className="mt-2">
             <input className="form-control" type="password" onChange={this.changePasswordHandler} value={this.state.password} name="password" placeholder="Enter Password" required minLength={10} maxLength={30} />
-            <ErrorMessage message ={this.state.errors.password}/>
+            <ErrorMessage message={this.state.errors.password} />
           </div>
 
           <div className="mt-4 text-center">
@@ -79,7 +79,7 @@ export default class LoginComponent extends React.Component<IProps, Istate> {
     alError.userEmail = err.map(el => el.err);
     this.setState({
       userEmail: e.target.value,
-      errors : alError
+      errors: alError
     })
     e.preventDefault();
   }
@@ -96,8 +96,9 @@ export default class LoginComponent extends React.Component<IProps, Istate> {
 
   async submitForm(e) {
     // console.log(this.state)
-    let login = await this.loginService.login();
-    console.log(login)
-    console.log("api callses")
+    this.loginService.login().subscribe(resp => {
+      console.log(resp);
+      console.log("api callses")
+    });
   }
 }
