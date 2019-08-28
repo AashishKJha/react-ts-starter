@@ -7,46 +7,18 @@ import BaseService from './BaseService';
 
 export class RestServices extends BaseService {
   public get(url : string) {
-     return fetch(Environment.apiUrl+url , {
-       method : "GET",
-       headers : {
-         Accept: 'application/json',
-         'Content-Type': 'application/json',
-         'Authorization' : "Bearer d_S_LArLL7xxjqKMjMfxm1w_IxFY32_9Awp2"
-       }
-     }).then((res) => res.json())
+     return this.webCall(url, "GET", null)
   }
   
   public post(url : string, body : any) {
-    return fetch(url , {
-       method : "POST",
-       headers : {
-         Accept: 'application/json',
-         'Content-Type': 'application/json',
-       },
-       body : body
-     })
+    return this.webCall(url, "POST", null)
   }
 
   public delete(url : string, body : any) {
-    return fetch(url , {
-       method : "DELETE",
-       headers : {
-         Accept: 'application/json',
-         'Content-Type': 'application/json',
-       },
-       body : body
-     })
+    return this.webCall(url, "DELETE", null)
   }
 
   public put(url : string, body : any) {
-    return fetch(url , {
-       method : "PUT",
-       headers : {
-         Accept: 'application/json',
-         'Content-Type': 'application/json',
-       },
-       body : body
-     })
+    return this.webCall(url, "PUT", null)
   }
 }
