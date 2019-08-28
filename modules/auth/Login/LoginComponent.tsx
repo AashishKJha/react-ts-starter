@@ -1,7 +1,8 @@
 import * as React from 'react';
 import LoginIcon from './LoginIcon';
 import ValidationUtils  from '../../common/utils/ValidationUtils';
-import ErrorMessage from '../../common/components/ErrorMessage'
+import ErrorMessage from '../../common/components/ErrorMessage';
+import { LoginService } from './LoginService'
 import './Login.css'
 
 interface Istate {
@@ -17,6 +18,8 @@ interface IProps {
 
 }
 export default class LoginComponent extends React.Component<IProps, Istate> {
+
+  private loginService : LoginService = new LoginService();
 
   constructor(props) {
     super(props);
@@ -91,7 +94,10 @@ export default class LoginComponent extends React.Component<IProps, Istate> {
     e.preventDefault();
   }
 
-  submitForm(e) {
-    console.log(this.state)
+  async submitForm(e) {
+    // console.log(this.state)
+    let login = await this.loginService.login();
+    console.log(login)
+    console.log("api callses")
   }
 }
