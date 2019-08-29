@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import { render } from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 import Login from './login';
 import HelloWordComponent from './modules/tutorial/helloworld.component';
 import VariableBindings from './modules/tutorial/Bindings';
@@ -9,6 +10,7 @@ import ComponentProps from './modules/tutorial/Props';
 import LoginComponent from './modules/auth/Login/LoginComponent'
 import SignupComponent from './modules/auth/Signup/SignupComponent'
 import './style.css';
+import BasicExample from './modules/appRoute';
 
 interface AppProps { }
 interface AppState { 
@@ -33,3 +35,4 @@ class App extends Component<AppProps, AppState> {
 }
 
 render(<App />, document.getElementById('root'));
+ReactDOM.render(<BasicExample />, document.getElementById('route'));
