@@ -17,7 +17,7 @@ interface Istate {
 interface IProps {
 
 }
-export default class LoginComponent extends React.Component<IProps, Istate> {
+export class LoginComponent extends React.Component<IProps, Istate> {
 
   private loginService: LoginService = new LoginService();
 
@@ -94,7 +94,7 @@ export default class LoginComponent extends React.Component<IProps, Istate> {
     e.preventDefault();
   }
 
-  async submitForm(e) {
+  submitForm(e) {
     // console.log(this.state)
     this.loginService.login().subscribe(resp => {
       console.log(resp);

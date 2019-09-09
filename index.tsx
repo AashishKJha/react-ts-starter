@@ -7,7 +7,7 @@ import Login from './login';
 import HelloWordComponent from './modules/tutorial/helloworld.component';
 import VariableBindings from './modules/tutorial/Bindings';
 import ComponentProps from './modules/tutorial/Props';
-import LoginComponent from './modules/auth/Login/LoginComponent'
+import { LoginComponent } from './modules/auth'
 import SignupComponent from './modules/auth/Signup/SignupComponent'
 import './style.css';
 import BasicExample from './modules/appRoute';
